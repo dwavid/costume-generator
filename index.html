@@ -114,9 +114,14 @@
 
     function copyText() {
 
-        var textInput = document.getElementById('hidden-input');
-        textInput.select();
-        document.execCommand("copy");
+        var $body = document.getElementsByTagName('body')[0];
+        var $tempInput = document.createElement('INPUT');
+        $body.appendChild($tempInput);
+        $tempInput.select();
+        $tempInput.setAttribute('value', modifier + ' ' + character);
+        $tempInput.select();
+        document.execCommand('copy');
+        $body.removeChild($tempInput);
         document.getElementById('copy-button-area').innerHTML = '<button class="ui green button" id="secondary-button" onclick="copyText();">Copied &nbsp; <i class="check icon"></i> </button>';
 
     }
