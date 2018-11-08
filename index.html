@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costume Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+    <style>
+        .main {
+            max-width: 800px;
+            width: 100vw;
+            padding: 25px;
+            padding-top: 20vh;
+            text-align: center;
+            margin: auto;
+        }
+        h1 {
+            font-size: 5em;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <h1 id="modifier">GET</h1>
+    <h1 id="character">STOKED</h1>
+    <button class="ui massive primary button" onclick="generate();">DO IT</button>
+</div>
+
+<script>
+    var modifiers = [
+        'Afrofuturist',
+        'Anime',
+        'Mermaid',
+        'Avatar erotic fanfiction',
+        'Cyberpunk',
+        'Ecomonster',
+        'Egyptian',
+        'Fantasy',
+        'Furry',
+        'Goth',
+        'Heavy Metal',
+        'Lovecraft',
+        'Noir',
+        'Monster',
+        'Post-Apocalypse',
+        'Prehistoric',
+        'Sci-fi',
+        'Slutty',
+        'Steampunk',
+        'Tiki',
+        'Vampire',
+        'Western',
+        'Zombie'
+    ];
+    var characters = [
+        'Astronaut',
+        'Baby',
+        'Barista',
+        'Basic bitch',
+        'Bro',
+        'Clown',
+        'Cowboy',
+        'Doctor',
+        'Dog',
+        'Elf',
+        'Emo',
+        'Ghost',
+        'Gnome',
+        'Hipster',
+        'Hippie',
+        'Hobo',
+        'Incel',
+        'Nun',
+        'Priest',
+        'Robot',
+        'Scientist',
+        'Superhero',
+        'Tennis Ball',
+        'Thomas',
+        'Witch'
+    ];
+
+    var generate = function() {
+        var modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
+        var character = characters[Math.floor(Math.random()*characters.length)];
+
+        document.getElementById('modifier').innerHTML = modifier;
+        document.getElementById('character').innerHTML = character;
+    };
+
+</script>
+</body>
+</html>
