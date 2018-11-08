@@ -20,16 +20,22 @@
         }
     </style>
 </head>
-<body>
+<body onkeypress="generate();">
 <div class="main">
-    <div id="modifier">
-        <h1 class="animated fadeInLeft">GET</h1>
-    </div>
-    <div id="character">
-        <h1 class="animated fadeInRight">STOKED</h1>
+    <div id="costume">
+        <div id="modifier">
+            <h1 class="animated fadeInLeft">Click</h1>
+        </div>
+        <div id="character">
+            <h1 class="animated fadeInRight">below</h1>
+        </div>
     </div>
     <br/>
-    <button class="ui massive primary button" onclick="generate();">DO IT</button>
+    <button class="ui massive primary button" id="main-button" onclick="generate();">Get Started</button>
+    <br/><br/>
+    <div id="copy-button-area">
+
+    </div>
 </div>
 
 <script>
@@ -44,11 +50,11 @@
         'Fantasy',
         'Furry',
         'Goth',
-        'Heavy Metal',
+        'Heavy metal',
         'Lovecraft',
         'Noir',
         'Monster',
-        'Post-Apocalypse',
+        'Post-apocalypse',
         'Prehistoric',
         'Sci-fi',
         'Slutty',
@@ -59,40 +65,54 @@
         'Zombie'
     ];
     var characters = [
-        'Astronaut',
-        'Baby',
-        'Barista',
-        'Basic bitch',
-        'Bro',
-        'Clown',
-        'Cowboy',
-        'Doctor',
-        'Dog',
-        'Elf',
-        'Emo',
-        'Ghost',
-        'Gnome',
-        'Hipster',
-        'Hippie',
-        'Hobo',
-        'Incel',
-        'Nun',
-        'Priest',
-        'Robot',
-        'Scientist',
-        'Superhero',
-        'Tennis Ball',
+        'astronaut',
+        'baby',
+        'barista',
+        'basic bitch',
+        'bro',
+        'clown',
+        'cowboy',
+        'doctor',
+        'dog',
+        'elf',
+        'emo kid',
+        'ghost',
+        'gnome',
+        'hipster',
+        'hippie',
+        'hobo',
+        'incel',
+        'nun',
+        'priest',
+        'robot',
+        'scientist',
+        'superhero',
+        'tennis Ball',
         'Thomas',
-        'Witch'
+        'witch'
     ];
 
-    var generate = function() {
-        var modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
-        var character = characters[Math.floor(Math.random()*characters.length)];
+    var modifier;
+    var character;
+
+    function generate() {
+
+        modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
+        character = characters[Math.floor(Math.random()*characters.length)];
 
         document.getElementById('modifier').innerHTML = '<h1 class="animated fadeInLeft">' + modifier + '</h1>';
         document.getElementById('character').innerHTML = '<h1 class="animated fadeInRight">' + character + '</h1>';
-    };
+        document.getElementById('main-button').innerHTML = 'New &nbsp; <i class="redo icon"></i>';
+        document.getElementById('copy-button-area').innerHTML = '<button class="ui secondary button" id="secondary-button" onclick="copyText();">Copy &nbsp; <i class="copy icon"></i> </button>';
+    }
+
+    function copyText() {
+        navigator.clipboard.writeText(modifier + ' ' + character).then(function() {
+            document.getElementById('copy-button-area').innerHTML = '<button class="ui green button" id="secondary-button" onclick="copyText();">Copied &nbsp; <i class="check icon"></i> </button>';
+        }, function() {
+            alert('Ahh shit. Something went wrong...')
+        });
+    }
 
 </script>
 </body>
