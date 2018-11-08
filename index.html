@@ -18,6 +18,10 @@
         h1 {
             font-size: 5em;
         }
+        .hide {
+            position:absolute;
+            left:-9999px
+        }
     </style>
 </head>
 <body onkeypress="generate();">
@@ -36,6 +40,7 @@
     <div id="copy-button-area">
 
     </div>
+    <input id="hidden-input" title="costume" class="hide"/>
 </div>
 
 <script>
@@ -103,15 +108,17 @@
         document.getElementById('modifier').innerHTML = '<h1 class="animated fadeInLeft">' + modifier + '</h1>';
         document.getElementById('character').innerHTML = '<h1 class="animated fadeInRight">' + character + '</h1>';
         document.getElementById('main-button').innerHTML = 'New &nbsp; <i class="redo icon"></i>';
+        document.getElementById('hidden-input').value = modifier + ' ' + character;
         document.getElementById('copy-button-area').innerHTML = '<button class="ui secondary button" id="secondary-button" onclick="copyText();">Copy &nbsp; <i class="copy icon"></i> </button>';
     }
 
     function copyText() {
-        navigator.clipboard.writeText(modifier + ' ' + character).then(function() {
-            document.getElementById('copy-button-area').innerHTML = '<button class="ui green button" id="secondary-button" onclick="copyText();">Copied &nbsp; <i class="check icon"></i> </button>';
-        }, function() {
-            alert('Ahh shit. Something went wrong...')
-        });
+
+        var textInput = document.getElementById('hidden-input');
+        textInput.select();
+        document.execCommand("copy");
+        document.getElementById('copy-button-area').innerHTML = '<button class="ui green button" id="secondary-button" onclick="copyText();">Copied &nbsp; <i class="check icon"></i> </button>';
+
     }
 
 </script>
