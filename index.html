@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Costume Generator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <style>
         .main {
             max-width: 800px;
@@ -21,8 +22,13 @@
 </head>
 <body>
 <div class="main">
-    <h1 id="modifier">GET</h1>
-    <h1 id="character">STOKED</h1>
+    <div id="modifier">
+        <h1 class="animated fadeInLeft">GET</h1>
+    </div>
+    <div id="character">
+        <h1 class="animated fadeInRight">STOKED</h1>
+    </div>
+    <br/>
     <button class="ui massive primary button" onclick="generate();">DO IT</button>
 </div>
 
@@ -84,8 +90,8 @@
         var modifier = modifiers[Math.floor(Math.random()*modifiers.length)];
         var character = characters[Math.floor(Math.random()*characters.length)];
 
-        document.getElementById('modifier').innerHTML = modifier;
-        document.getElementById('character').innerHTML = character;
+        document.getElementById('modifier').innerHTML = '<h1 class="animated fadeInLeft">' + modifier + '</h1>';
+        document.getElementById('character').innerHTML = '<h1 class="animated fadeInRight">' + character + '</h1>';
     };
 
 </script>
