@@ -227,7 +227,7 @@
         document.getElementById('character').innerHTML = '<h1 class="animated fadeInRight">' + character + '</h1>';
         document.getElementById('main-button').innerHTML = 'New &nbsp; <i class="redo icon"></i>';
         document.getElementById('hidden-input').value = modifier + ' ' + character;
-        document.getElementById('copy-button-area').innerHTML = '<button class="ui secondary button" id="secondary-button" onclick="copyText();">Copy &nbsp; <i class="copy icon"></i> </button>';
+        document.getElementById('copy-button-area').innerHTML = '<button class="ui button" id="copy-button" onclick="copyText();">Copy &nbsp; <i class="copy icon"></i> </button>';
     }
 
     function copyText() {
@@ -240,7 +240,7 @@
         document.execCommand('copy');
         $body.click();
         $body.removeChild($tempInput);
-        document.getElementById('copy-button-area').innerHTML = '<button class="ui green button" id="secondary-button" onclick="copyText();">Copied &nbsp; <i class="check icon"></i> </button>';
+        document.getElementById('copy-button-area').innerHTML = '<button class="ui green button" id="copy-button" onclick="copyText();">Copied &nbsp; <i class="check icon"></i> </button>';
 
     }
 
